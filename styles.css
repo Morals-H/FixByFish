@@ -1,0 +1,109 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body spans the entire page height */
+  font-family: Arial, sans-serif;
+  background-color: #050505; /* Dark gray background */
+  text-align: center; /* Center text */
+  color: #ffffff; /* White text for contrast */
+}
+
+/* Full-width image below the navbar */
+.header-image {
+  position: relative; /* Allows absolute children (like ::after) to position relative to this */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Full width */
+  height: 400px; /* Adjust height as needed */
+  background: url('images/PlaceHolder.png') no-repeat center center/cover;
+}
+
+/* Fading effect as you scroll */
+.header-image::after {
+  content: '';
+  position: absolute; /* Overlay on top of the background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, #050505 100%);
+  pointer-events: none;
+}
+
+/* Navbar list item styling */
+.navbar li {
+  display: inline;
+}
+
+/* Navbar container */
+.navbar ul {
+  background-color: #050505; /* Dark background */
+  border: 2px solid #fff; /* Border around the bubble */
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Center items vertically */
+  justify-content: flex-start; /* Align items to the left */
+  padding: 0 20px; /* Horizontal padding */
+  gap: 30px; /* Space between elements */
+  margin: 0; /* Remove any default margin */
+  position: fixed; /* Fix it to the top of the page */
+  top: 0; /* Align to the very top */
+  left: 0; /* Start at the left edge */
+  right: 0; /* Stretch to the right edge */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+.navbar h1 {
+  font-size: 20px;
+  padding: 7.5px 15px; /* Add padding inside the boxes */
+  border: 2px solid #fff; /* Add a border around each box */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  color: #fff; /* White text */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 15px; /* Add padding inside the boxes */
+  background-color: #050505; /* Box background color */
+  border: 2px solid #fff; /* Add a border around each box */
+  border-radius: 5px; /* Rounded corners */
+  display: block; /* Ensure proper spacing */
+}
+
+
+/* Hover effect for links */
+.navbar a:hover {
+  border-color: #050505; /* Change border color on hover */
+}
+
+/* Logo styling */
+.logo {
+  height: 75px;
+  width: auto;
+}
+
+/* Bubble styling */
+.header-bubble {
+  background-color: #050505; /* Semi-transparent background */
+  border: 2px solid #fff; /* Border around the bubble */
+  border-radius: 20px; /* Rounded corners */
+  padding: 5px 30px; /* Space inside the bubble */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  display: inline-block; /* Keep bubble snug around text */
+  margin-top: 20px;
+}
+
+.body-bubble {
+  background-color: #050505; /* Semi-transparent background */
+  border: 2px solid #fff; /* Border around the bubble */
+  border-radius: 20px; /* Rounded corners */
+  padding: 5px 30px; /* Space inside the bubble */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.body-bubble p {
+  font-size: 20px;
+}
