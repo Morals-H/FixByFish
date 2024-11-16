@@ -84,7 +84,7 @@ body, html {
 .panel {
   position: fixed;
   top: 0;
-  right: -250px; /* Hidden initially */
+  right: -300px; /* Hidden initially */
   width: 250px;
   height: 100%;
   background-color: #050505ec;
