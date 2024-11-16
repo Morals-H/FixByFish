@@ -86,19 +86,12 @@ body, html {
   right: -250px; /* Hidden initially */
   width: 250px;
   height: 100%;
-  background-color: #050505;
+  background-color: #050505ec;
+  border: 2px solid #fff; 
+  border-radius: 10px;
   overflow-y: auto;
   transition: right 0.3s ease-in-out; /* Smooth sliding effect */
   z-index: 999;
-}
-
-.panel h2 {
-  margin: 20px;
-  margin-top: 60px;
-  border: 2px solid #fff; 
-  border-radius: 10px;
-  padding: 5px 30px; 
-  display:block
 }
 
 .panel ul {
@@ -108,29 +101,29 @@ body, html {
 
 .panel ul li a {
   text-decoration: none;
-  color: #fff;
   border: 2px solid #fff; 
   border-radius: 10px;
   padding: 5px 30px; 
-  margin-bottom: 5px;
+  margin-bottom: 24px;
+  margin-top: -14px;
   display:block
 }
 
 /* Bubble styling */
 .header-bubble {
-  background-color: #050505; 
   border: 2px solid #fff; 
   border-radius: 10px;
   padding: 5px 30px; 
   display: inline-block; 
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 20px;
 }
 
 .body-bubble {
-  background-color: #050505; /* Semi-transparent background */
-  border: 2px solid #fff; /* Border around the bubble */
-  border-radius: 10px; /* Rounded corners */
-  padding: 5px 30px; /* Space inside the bubble */
+  border: 2px solid #fff; 
+  border-radius: 10px; 
+  padding: 5px 30px;
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
