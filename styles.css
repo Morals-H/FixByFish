@@ -55,72 +55,74 @@ body, html {
   pointer-events: none;
 }
 
-/* Navbar container */
-.navbar {
-  display: flex; /* Align items horizontally */
-}
-
 /* Logo styling */
 .logo {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 50px;
   width: auto;
   z-index: 1000;
 }
 
-/* Container to split content */
-.container {
-  display: flex;
-  flex-direction: row; /* Horizontal alignment */
-  gap: 20px; /* Optional: Space between columns */
-  padding: 20px;
+/* Tabs styling */
+.tabs {
+  position: fixed;
+  top: 0;
+  right: 0; /* Aligns tabs to the right */
+  height: 50px;
+  width: auto;
+  z-index: 1000;
+  display: flex; /* Optional for arranging tabs inline */
+  gap: 10px; /* Adds space between tabs */
+  transition: right 0.3s ease-in-out; /* Smooth transition */
+  cursor: pointer;
 }
 
-/* Main content styling */
-.main-content {
-  flex: 3.5; /* Takes up more space */
-  padding: 20px;
+/* Panel styling */
+.panel {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Hidden initially */
+  width: 250px;
+  height: 100%;
+  background-color: #050505;
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out; /* Smooth sliding effect */
+  z-index: 999;
 }
 
-/* Sidebar styling */
-.sidebar {
-  flex: 0.5; /* Takes up less space */
-  padding: 20px;
-  border-left: 2px solid #fff; /* Optional: Divider */
-}
-/* Bubble styling */
-.sidebar h2 {
-  background-color: #050505; /* Semi-transparent background */
-  border: 2px solid #fff; /* Border around the bubble */
-  border-radius: 10px; /* Rounded corners */
-  padding: 5px 20px; /* Space inside the bubble */
-  display: inline-block; /* Keep bubble snug around text */
+.panel h2 {
+  margin: 20px;
+  margin-top: 60px;
+  border: 2px solid #fff; 
+  border-radius: 10px;
+  padding: 5px 30px; 
+  display:block
 }
 
-.sidebar ul {
-  list-style: none; /* Removes bullet points */
-  padding: 0; /* Removes default padding */
-  margin: 0; /* Removes default margin */
+.panel ul {
+  padding: 10px;
+  list-style: none;
 }
-/* Links inside the navbar */
-.sidebar li {
-  margin-bottom: 10px; /* Optional: Adds spacing between list items */
-  text-decoration: none; /* Remove underline */
-  padding: 10px 15px; /* Add padding inside the boxes */
-  border: 2px solid #fff; /* Add a border around each box */
-  border-radius: 10px; /* Rounded corners */
-  display: block; /* Ensure proper spacing */
+
+.panel ul li a {
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #fff; 
+  border-radius: 10px;
+  padding: 5px 30px; 
+  margin-bottom: 5px;
+  display:block
 }
 
 /* Bubble styling */
 .header-bubble {
-  background-color: #050505; /* Semi-transparent background */
-  border: 2px solid #fff; /* Border around the bubble */
-  border-radius: 10px; /* Rounded corners */
-  padding: 5px 30px; /* Space inside the bubble */
-  display: inline-block; /* Keep bubble snug around text */
+  background-color: #050505; 
+  border: 2px solid #fff; 
+  border-radius: 10px;
+  padding: 5px 30px; 
+  display: inline-block; 
   margin-top: 20px;
 }
 
@@ -132,6 +134,7 @@ body, html {
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  text-align: left;
 }
 .body-bubble p {
   font-size: 20px;
