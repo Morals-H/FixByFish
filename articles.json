@@ -1,7 +1,6 @@
 [
-    { "title": "Echo Ai", "url": "/articles/EchoAi.html" },
-    { "title": "Nether Server", "url": "/articles/Placeholder.html" },
-    { "title": "Placeholder", "url": "/articles/Placeholder.html" },
+    { "title": "Echo Ai", "url": "/articles/echoai.html" },
+    { "title": "F&F Nether", "url": "/articles/f&fNether.html" },
     { "title": "Placeholder", "url": "/articles/Placeholder.html" },
     { "title": "Placeholder", "url": "/articles/Placeholder.html" }
 ]
