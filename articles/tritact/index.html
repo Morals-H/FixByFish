@@ -3,44 +3,17 @@
 <html lang="en">
 
 <html>
-
-<!-- Site Header -->
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZELLS7ZJQE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-ZELLS7ZJQE');
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML, CSS">
-    <meta name="description" content="Tritact, a turn-based baord game for Android and Windows">
-    <title>Fix By Fish</title>
+<!-- Site Head -->
+    <div id="head"></div>
     <link rel="stylesheet" href="/data/styles.css">
-    <link rel="icon" href="/images/icons/FBF_Logo_White_Favicon.png" type="image/png">
-</head>
-
+    <meta name="description" content="Tritact is a fun tactical boardgame playable on windows and android.">
 <!-- Site Body -->
 <body>
-    <div>
-        <img src="/images/icons/FBF_Logo_White.png" class="logo">
-        <div class="tabs" id="tabs" onclick="togglePanel()">
-            <img src="/images/icons/Tabs.png" alt="Tabs Icon" class="tabs-icon">
-        </div>
-        <div class="panel" id="panel">
-            <ul id="article-list"></ul>
-        </div>
-    </div>
-    <a href="/"><img src="/images/icons/FBF_Logo_White.png" class="logo"></a>
+    <noscript>
+    <p>This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+    </noscript>
+      
+    <div id="navbar"></div>
     <div class="header-image" style="background: url('/images/headers/PlaceHolder.png') no-repeat center center/cover;"></div>
     <div class="container">
         <div class="main-content">
@@ -66,26 +39,16 @@
                 
                 <h2>Final Thoughts</h2>
                 <p>I made this game the week before I moved to Cleveland; it was my last project in my hometown, so it was special. I didn't have high hopes for it, but I had an idea and went for it, and I'm content with that.</p>
+                <p>The game is playable <a href="https://shawnwolf.itch.io/tritact">here</a>.</p>
                 <br>
             </div>
         </div>
         <!-- Site Footer -->
-        <div class="txt-site-footer">
-            <footer class="site-footer">
-                <p>&copy; 2024 FixByFish <a href="/articles/privacypolicy" class="footer-link">Privacy Policy</a></p>
-                <div class="links-footer">
-                    <a href="https://morals.artstation.com/" class="footer-link">ArtStation</a>
-                    <a href="https://discord.com/invite/AmSq7Qdvan" class="footer-link">Discord</a>
-                    <a href="mailto:swolf@fixbyfish.com" class="footer-link">Email</a>
-                    <a href="https://shawnwolf.itch.io/" class="footer-link">Itch.io</a>
-                    <a href="https://www.linkedin.com/in/shawntwolf/" class="footer-link">LinkedIn</a>
-                </div>
-                <br>
-            </footer>
-        </div>
+        <div id="footer"></div>
     </div>
 
     <!-- JavaScript -->
+    <script src="/data/guiHandler.js"></script>
     <script src="/data/articleHandler.js"></script>
 
 </body>

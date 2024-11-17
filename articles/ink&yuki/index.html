@@ -3,44 +3,17 @@
 <html lang="en">
 
 <html>
-
-<!-- Site Header -->
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZELLS7ZJQE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-ZELLS7ZJQE');
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="HTML, CSS">
-    <meta name="description" content="Ink & Yuki, was a cooperative collectathon published on Jun 15, 2022.">
-    <title>Fix By Fish</title>
+<!-- Site Head -->
+    <div id="head"></div>
     <link rel="stylesheet" href="/data/styles.css">
-    <link rel="icon" href="/images/icons/FBF_Logo_White_Favicon.png" type="image/png">
-</head>
-
+    <meta name="description" content="Ink & Yuki is a cute cooperative 3D collectathon.">
 <!-- Site Body -->
 <body>
-    <div>
-        <img src="/images/icons/FBF_Logo_White.png" class="logo">
-        <div class="tabs" id="tabs" onclick="togglePanel()">
-            <img src="/images/icons/Tabs.png" alt="Tabs Icon" class="tabs-icon">
-        </div>
-        <div class="panel" id="panel">
-            <ul id="article-list"></ul>
-        </div>
-    </div>
-    <a href="/"><img src="/images/icons/FBF_Logo_White.png" class="logo"></a>
+    <noscript>
+    <p>This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+    </noscript>
+      
+    <div id="navbar"></div>
     <div class="header-image" style="background: url('/images/headers/Ink&Yuki.png') no-repeat center center/cover;"></div>
     <div class="container">
         <div class="main-content">
@@ -56,8 +29,8 @@
                 <br>
 
                 <h2>Technical</h2>
-                <p>Ink & Yuki was made in Unity; I wrote the game almost entirely in C# and utilized Photon Pun 2 hosting multiplayer servers.</p>
-                <p>I also created the art entirely from scratch because I wanted something entirely unique, and I think I achieved my goal. The game is monochrome in a 3D space with cute cartoony visuals. I had many challenges in making the game visually readable; some of my solutions can be seen with the outlines, the distance particles, and the landing shadow.</p>
+                <p>Ink & Yuki was made in Unity, and utilized Photon Pun 2 hosting for the multiplayer servers.</p>
+                <p>The art was entirely made from scratch because I wanted something entirely unique, and I think I achieved my goal. The game is monochrome in a 3D space with cute cartoony visuals. I had many challenges in making the game visually readable; some of my solutions can be seen with the outlines, the distance particles, and the landing shadow.</p>
                 <br>
 
                 <h2>What Happened</h2>
@@ -72,22 +45,11 @@
             </div>
         </div>
         <!-- Site Footer -->
-        <div class="txt-site-footer">
-            <footer class="site-footer">
-                <p>&copy; 2024 FixByFish <a href="/articles/privacypolicy" class="footer-link">Privacy Policy</a></p>
-                <div class="links-footer">
-                    <a href="https://morals.artstation.com/" class="footer-link">ArtStation</a>
-                    <a href="https://discord.com/invite/AmSq7Qdvan" class="footer-link">Discord</a>
-                    <a href="mailto:swolf@fixbyfish.com" class="footer-link">Email</a>
-                    <a href="https://shawnwolf.itch.io/" class="footer-link">Itch.io</a>
-                    <a href="https://www.linkedin.com/in/shawntwolf/" class="footer-link">LinkedIn</a>
-                </div>
-                <br>
-            </footer>
-        </div>
+        <div id="footer"></div>
     </div>
-    
+
     <!-- JavaScript -->
+    <script src="/data/guiHandler.js"></script>
     <script src="/data/articleHandler.js"></script>
 
 </body>
