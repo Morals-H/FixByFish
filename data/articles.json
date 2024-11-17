@@ -1,8 +1,8 @@
 [
-    { "title": "Home", "url": "../index.html" },
-    { "title": "Echo Ai", "url": "../articles/echoai.html" },
-    { "title": "F&F Nether", "url": "../articles/f&fNether.html" },
-    { "title": "Ink & Yuki", "url": "../articles/ink&Yuki.html" },
-    { "title": "Tri-Tact", "url": "../articles/tritact.html" },
-    { "title": "Privacy Policy", "url": "../articles/privacyPolicy.html" }
+    { "title": "Home", "url": "/index.html" },
+    { "title": "Echo Ai", "url": "/articles/echoai.html" },
+    { "title": "F&F Nether", "url": "/articles/f&fNether.html" },
+    { "title": "Ink & Yuki", "url": "/articles/ink&Yuki.html" },
+    { "title": "Tri-Tact", "url": "/articles/tritact.html" },
+    { "title": "Privacy Policy", "url": "/articles/privacyPolicy.html" }
 ]

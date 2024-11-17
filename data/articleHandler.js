@@ -7,15 +7,15 @@ function togglePanel()
   if (panel.style.right === '0px') {
       panel.style.right = '-300px'; 
       tabs.style.right = '0px';
-      icon.src = '../images/Tabs.png';
+      icon.src = '/images/icons/Tabs.png';
   } else {
       panel.style.right = '0px'; 
       tabs.style.right = '250px';
-      icon.src = '../images/Exit.png';
+      icon.src = '/images/icons/Exit.png';
   }
 }
 
-fetch('../data/articles.json')
+fetch('/data/articles.json')
   .then(response => response.json())
   .then(data => {
       const articleList = document.getElementById('article-list');

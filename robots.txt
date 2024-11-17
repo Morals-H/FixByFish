@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /articles/Headers
 Disallow: /images/
 Disallow: /data/
 Allow: /articles/
