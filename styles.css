@@ -1,82 +1,43 @@
-/* Default link color */
+/* Link styles */
 a {
-  color: #fff; /* Replace with your custom color */
-  text-decoration: underline; /* Adds underline on hover (optional) */
+  color: #fff;
+  text-decoration: underline;
 }
 
-/* Link color when hovered */
 a:hover {
-  color: #fff; /* Replace with your custom hover color */
-  text-decoration: none; /* Adds underline on hover (optional) */
+  text-decoration: none;
 }
 
-/* Visited link color */
 a:visited {
-  color: #fff; /* Replace with your custom visited color */
-  text-decoration: dashed; /* Adds underline on hover (optional) */
+  text-decoration: dashed;
 }
 
-/* Active link color (while clicking) */
 a:active {
-  color: #fff; /* Replace with your custom active color */
-  text-decoration: none; /* Adds underline on hover (optional) */
+  text-decoration: none;
 }
 
-body, html {
+/* HTML styling */
+html {
   margin: 0;
   padding: 0;
-  height: 100%; /* Ensure the body spans the entire page height */
-  font-family: 'Audiowide', sans-serif;
-  background-color: #050505; /* Dark gray background */
-  text-align: center; /* Center text */
-  color: #ffffff; /* White text for contrast */
-}
-
-
-/* Full-width image below the navbar */
-.header-image {
-  position: relative; /* Allows absolute children (like ::after) to position relative to this */
-  display: flex; /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  width: 100%; /* Full width */
-  height: 500px; /* Adjust height as needed */
-  background: url('images/PlaceHolder.png') no-repeat center center/cover;
-}
-
-/* Fading effect as you scroll */
-.header-image::after {
-  content: '';
-  position: absolute; /* Overlay on top of the background */
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #05050500, #050505ff);
-  pointer-events: none;
+  font-family: 'Audiowide', sans-serif;
+  background-color: #050505;
+  text-align: left;
+  color: #fff;
 }
 
-/* Logo styling */
-.logo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: auto;
-  z-index: 1000;
-}
 
 /* Tabs styling */
 .tabs {
   position: fixed;
   top: 0;
-  right: 0; /* Aligns tabs to the right */
+  right: 0;
   height: 50px;
-  width: auto;
+  display: flex;
+  gap: 10px;
   z-index: 1000;
-  display: flex; /* Optional for arranging tabs inline */
-  gap: 10px; /* Adds space between tabs */
-  transition: right 0.3s ease-in-out; /* Smooth transition */
+  transition: right 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -84,14 +45,13 @@ body, html {
 .panel {
   position: fixed;
   top: 0;
-  right: -300px; /* Hidden initially */
+  right: -300px;
   width: 250px;
   height: 100%;
   background-color: #050505ec;
-  border: 2px solid #fff; 
-  border-radius: 10px;
+  border-left: 2px solid #fff;
   overflow-y: auto;
-  transition: right 0.3s ease-in-out; /* Smooth sliding effect */
+  transition: right 0.3s ease-in-out;
   z-index: 999;
 }
 
@@ -102,34 +62,76 @@ body, html {
 
 .panel ul li a {
   text-decoration: none;
-  border: 2px solid #fff; 
+  border: 2px solid #fff;
   border-radius: 10px;
-  padding: 5px 30px; 
-  margin-bottom: 24px;
-  margin-top: -14px;
-  display:block
-}
-
-/* Bubble styling */
-.header-bubble {
-  border: 2px solid #fff; 
-  border-radius: 10px;
-  padding: 5px 30px; 
-  display: inline-block; 
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 20px;
-}
-
-.body-bubble {
-  border: 2px solid #fff; 
-  border-radius: 10px; 
   padding: 5px 30px;
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: left;
+  margin: -14px 0 24px 0;
+  display: block;
 }
+
+/* Header styling */
+.header-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 500px;
+  background: url('images/PlaceHolder.png') no-repeat center center/cover;
+}
+
+.header-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #05050500, #050505ff);
+  pointer-events: none;
+}
+
+.logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  z-index: 1000;
+}
+
+.header-bubble
+{
+  text-align: center;
+}
+
+.header-bubble, .body-bubble {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 5px 30px;
+  margin: 20px 10px;
+}
+
+/* Body styling */
+
 .body-bubble p {
   font-size: 20px;
+}
+
+/* Footer styling */
+.site-footer {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1rem;
+  padding: 5px 30px;
+  margin: 20px 10px;
+  bottom: 0;
+}
+
+.site-footer a.footer-link {
+  margin: 5px;
+}
+
+.site-footer a.footer-link:hover {
+  text-decoration: underline;
 }
