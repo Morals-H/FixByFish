@@ -15,7 +15,7 @@ function togglePanel()
   }
 }
 
-fetch('/articles.json')
+fetch('../data/articles.json')
   .then(response => response.json())
   .then(data => {
       const articleList = document.getElementById('article-list');

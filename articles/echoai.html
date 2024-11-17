@@ -25,7 +25,7 @@
     <meta name="keywords" content="HTML, CSS">
     <meta name="description" content="Echo Ai, ChatGPT Integration in Graal Online Classic.">
     <title>Fix By Fish</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../data/styles.css">
     <link rel="icon" href="../images/FBF_Logo_White_Favicon.png" type="image/png">
 </head>
 
@@ -41,7 +41,7 @@
         </div>
     </div>
     <a href="../index.html"><img src="../images/FBF_Logo_White.png" class="logo"></a>
-    <div class="header-image" style="background: url('../articles/Headers/EchoAi.png') no-repeat center center/cover;"></div>
+    <div class="header-image" style="background: url('../articles/headers/EchoAi.png') no-repeat center center/cover;"></div>
     <div class="container">
         <div class="main-content">
             <div class="txt-header-container">
@@ -56,13 +56,13 @@
                 <p>Echo AI was a project that aimed to allow players in the MMO Graal Online Classic to communicate fully with OpenAI's ChatGPT within the game. Echo only ran from July 23 to July 28, 2024, before the Graal Administration Staff shut it down. Echo accumulated thousands of messages from hundreds of unique users in its short run-time.</p>
                 <br>
 
-                <h2>Technical Side</h2>
+                <h2>Technical</h2>
                 <p>Echo was a relatively simple program written in AutoHotkey Version 2 (AHKV2). The program checked for private messages (PMs), and if one were found, it opened the messages and read both the sender's username and message. Echo took this information and sent it to the ChatGPT API, then awaited a response. When Echo received a response, it read out the message in the game's open chat and logged both the message and the response.</p>
                 <p>Echo also had a few features, such as command detection. If a player attempted to force the bot to use an in-game command, it would detect and drop the message—except for Graal Online Classic's built-in Rock-Paper-Scissors minigame. Echo could play this game with players by choosing a random number that would determine their choice of rock, paper, or scissors.</p>
                 <p>During the first few days, as the bot was running, I made hotfixes as issues arose, leading to a small group of people believing the bot was fake. It would occasionally double-type a letter or miss one in the first two days. This was caused by using Firefox as my browser initially; Firefox has a delay on Graal Online Classic and does not allow the paste feature. I was making the bot write out each letter one after the other with a delay between them. After learning that Chrome and Chromium-based browsers allowed for copy-and-paste functionality, I moved to Microsoft Edge.</p>
                 <br>
 
-                <h2>What Happened?</h2>
+                <h2>What Happened</h2>
                 <p>The account received a warning from the Graal Online Classic administration staff simply saying "No," and I immediately ceased using the program. After double-checking the Graal Online Code of Conduct, I emailed the staff to ask for more context, as, from my understanding, I was within the guidelines. I received an email stating, "Any program used to operate an account in place of a person is prohibited." I attempted to have a conversation but have yet to receive any messages in return, even after several follow-up emails.</p>
                 <br>
 
@@ -84,12 +84,13 @@
                     <a href="https://shawnwolf.itch.io/" class="footer-link">Itch.io</a>
                     <a href="https://www.linkedin.com/in/shawntwolf/" class="footer-link">LinkedIn</a>
                 </div>
+                <br>
             </footer>
         </div>
     </div>
     
     <!-- JavaScript -->
-    <script src="../articleHandler.js"></script>
+    <script src="../data/articleHandler.js"></script>
 
 </body>
 
