@@ -103,10 +103,9 @@ body {
 }
 
 .container {
-  max-width: 80vw; /* Limits to 80% of the viewport width */
   max-width: calc(100vh * (16 / 9)); /* Matches the height-based aspect ratio */
   margin: 0 auto; /* Centers the content */
-  padding: 1rem; /* Optional padding for better spacing */
+  padding: 2.5rem; /* Optional padding for better spacing */
 }
 
 .txt-header-container{
@@ -128,7 +127,7 @@ body {
   border: 2px solid #fff;
   border-radius: 10px;
   padding: 5px 30px;
-  margin: 20px 10px;
+  margin: 0px 10px;
 }
 
 .body-bubble p {
