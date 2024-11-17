@@ -136,15 +136,22 @@ body {
 }
 
 /* Footer styling */
+.txt-site-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ensures vertical alignment */
+  width: 100%; /* Ensures container spans the full width */
+}
+
 .site-footer {
   border: 2px solid #fff;
+  display: inline-block;
   border-radius: 10px;
   text-align: center;
-  padding: 1rem;
   padding: 5px 30px;
   margin: 20px 10px;
-  bottom: 0;
 }
+
 
 .site-footer a.footer-link {
   margin: 5px;
