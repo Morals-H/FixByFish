@@ -68,6 +68,7 @@ html {
 }
 
 .panel ul li a {
+  text-align: center;
   text-decoration: none;
   border: 2px solid #fff;
   border-radius: 10px;
@@ -159,4 +160,35 @@ body {
 
 .site-footer a.footer-link:hover {
   text-decoration: underline;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+ 
+.container {
+  padding: 0rem;
+}
+
+/* navbar styling */
+.logo {
+  height: 40px;
+}
+
+.tabs {
+  height: 40px;
+}
+
+.txt-header-bubble{
+  border: none;
+  border-top: 2px solid #fff;
+}
+
+.body-bubble {
+  border: none;
+  border-top: 2px solid #fff;
+}
+.site-footer {
+  border: none;
+  border-top: 2px solid #fff;
+}
 }
