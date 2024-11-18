@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         cube.href = article.url;
                         cube.className = 'cube';
                         cube.innerHTML = `
-                            <p><b>${article.title}</b><br>
-                            ${article.desc}</p>
+                            <h3><b>${article.title}</b></h3>
+                            <p>${article.desc}</p>
                         `;
                         cubesContainer.appendChild(cube);
                     });

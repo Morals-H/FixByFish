@@ -203,8 +203,8 @@ body {
   transition: transform 0.3s;
   box-sizing: border-box; 
 }
-.cube p{
-  margin: 0
+.cube h3{
+  margin: -2%
 }
 
 /* Hover effect */
