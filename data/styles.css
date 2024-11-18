@@ -23,7 +23,6 @@ html {
   height: 100%;
   width: 100%;
   font-family: 'Audiowide', sans-serif;
-  color: #fff;
 }
 
 /* navbar styling */
@@ -143,6 +142,10 @@ body {
   width: 100%;
 }
 
+.links-footer {
+  margin: 15px
+}
+
 .site-footer {
   border: 2px solid #fff;
   display: inline-block;
@@ -176,7 +179,7 @@ body {
   text-align: center;
   border: 2px solid #fff;
   height: 100px;
-  width: 80%;
+  width: 95%;
   margin: 10 auto;
 }
 
@@ -190,16 +193,18 @@ body {
 
 /* Individual cubes */
 .cube {
+  border: 2px solid #fff;
+  flex: 1 1 calc(25% - 16px);
+  border-radius: 10px;
+  text-decoration: none;
   padding: 1rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 200px;
   height: 150px;
-  text-decoration: none;
-  border: 2px solid #fff;
-  border-radius: 10px;
   transition: transform 0.3s;
+  box-sizing: border-box; 
+}
+.cube p{
+  margin: 0
 }
 
 /* Hover effect */
@@ -208,7 +213,7 @@ body {
 }
 
 /* Mobile styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 975px) {
  
 .container {
   padding: 0rem;
@@ -234,10 +239,25 @@ body {
 }
 
 /* Recommended Styling*/
-.recommended-articles h1{
+.cube {
+  flex: 1 0 45%; /* Each cube takes approximately 45% width */
+  max-width: 45%; /* Ensure two cubes fit per row */
+  height: 150px;
   border: none;
   border-top: 2px solid #fff;
 }
+
+.recommended-articles .article-cubes {
+  flex-wrap: wrap; /* Enable wrapping to create rows */
+  justify-content: center; /* Center the rows */
+  gap: 1em; /* Maintain spacing between rows */
+}
+
+.recommended-articles h1 {
+  border: none;
+  border-top: 2px solid #fff;
+}
+
 .site-footer {
   border: none;
   border-top: 2px solid #fff;
