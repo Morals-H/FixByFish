@@ -5,8 +5,18 @@
       .then(data => {
         document.getElementById("head").innerHTML = data;
       })
-      .catch(err => console.error("Error loading Navbar:", err));
+      .catch(err => console.error("Error loading head:", err));
   }
+
+    //load footer
+    function loadRec() {
+      fetch('/data/recommended.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("recommended").innerHTML = data;
+        })
+        .catch(err => console.error("Error loading recommended:", err));
+    }
 
   //load navbar
   function loadNav() {
@@ -15,7 +25,7 @@
       .then(data => {
         document.getElementById("navbar").innerHTML = data;
       })
-      .catch(err => console.error("Error loading Navbar:", err));
+      .catch(err => console.error("Error loading navbar:", err));
   }
 
     //load footer
@@ -32,5 +42,6 @@
     document.addEventListener("DOMContentLoaded", () => {
     loadHead();
     loadNav();
+    loadRec();
     loadFooter();
   });

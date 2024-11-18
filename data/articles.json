@@ -1,8 +1,8 @@
 [
-    { "title": "Home", "url": "/" },
-    { "title": "Echo Ai", "url": "/articles/echoai" },
-    { "title": "F&F Nether", "url": "/articles/f&fnether" },
-    { "title": "Ink & Yuki", "url": "/articles/ink&yuki" },
-    { "title": "Tri-Tact", "url": "/articles/tritact" },
-    { "title": "Privacy Policy", "url": "/articles/privacypolicy" }
+    { "title": "Home", "url": "/", "desc": "Fix by Fish"},
+    { "title": "Echo Ai", "url": "/articles/echoai" , "desc": "ChatGPT Integration in Graal Online Classic"},
+    { "title": "F&F Nether", "url": "/articles/f&fnether" , "desc": "One of the last Nether Resurrected servers"},
+    { "title": "Ink & Yuki", "url": "/articles/ink&yuki" , "desc": "Cooperative collectathon with a cartoony artstyle"},
+    { "title": "Tri-Tact", "url": "/articles/tritact" , "desc": "Minimalist tactical board game."},
+    { "title": "Privacy Policy", "url": "/articles/privacypolicy" , "desc": "What do we collect?"}
 ]

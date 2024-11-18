@@ -140,8 +140,8 @@ body {
 .txt-site-footer {
   display: flex;
   justify-content: center;
-  align-items: center; /* Ensures vertical alignment */
-  width: 100%; /* Ensures container spans the full width */
+  align-items: center;
+  width: 100%;
 }
 
 .site-footer {
@@ -158,8 +158,54 @@ body {
   margin: 5px;
 }
 
-.site-footer a.footer-link:hover {
-  text-decoration: underline;
+/* Center the recommended articles container */
+.recommended-articles {
+  text-align: center; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 0 auto; 
+  width: 100%;
+}
+
+.recommended-articles h1 {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #fff;
+  height: 100px;
+  width: 80%;
+  margin: 10 auto;
+}
+
+.article-cubes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+/* Individual cubes */
+.cube {
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+/* Hover effect */
+.cube:hover {
+  transform: translateY(-10px);
 }
 
 /* Mobile styles */
@@ -184,6 +230,12 @@ body {
 }
 
 .body-bubble {
+  border: none;
+  border-top: 2px solid #fff;
+}
+
+/* Recommended Styling*/
+.recommended-articles h1{
   border: none;
   border-top: 2px solid #fff;
 }
