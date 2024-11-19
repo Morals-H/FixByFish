@@ -149,20 +149,23 @@ body {
   border-radius: 10px;
   text-align: center;
   padding: 20px 30px;
-  margin: 20px 10px;
+  margin: 20px auto; /* Ensure site-footer itself is centered */
 }
 
 .links-footer {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center the icons horizontally */
+  align-items: center; /* Align icons vertically */
   gap: 15px; /* Add spacing between icons */
-  margin-bottom: 10px; /* Space between icons and text */
+  margin: 0 auto; /* Center the links-footer itself */
+  max-width: 400px; /* Restrict the width */
 }
 
 .links-footer img {
-  width: 50px;
+  width: 40px;
   height: auto;
-  vertical-align: middle; /* Aligns icons properly */
+  vertical-align: middle;
 }
 
 .site-footer a.footer-link {
@@ -211,9 +214,10 @@ body {
   height: 150px;
   transition: transform 0.3s;
   box-sizing: border-box; 
+  overflow: hidden;
 }
 .cube h3{
-  margin: -2%
+  margin: 0px
 }
 
 /* Hover effect */
@@ -222,7 +226,7 @@ body {
 }
 
 /* Mobile styles */
-@media screen and (max-width: 975px) {
+@media screen and (max-width: 985px) {
  
 .container {
   padding: 0rem;
@@ -270,5 +274,11 @@ body {
 .site-footer {
   border: none;
   border-top: 2px solid #fff;
+}
+.links-footer {
+  gap: 10px; /* Adjust spacing for smaller screens */
+}
+.links-footer img {
+  width: 30px; /* Reduce icon size on mobile for better fit */
 }
 }
