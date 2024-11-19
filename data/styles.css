@@ -142,19 +142,28 @@ body {
   width: 100%;
 }
 
-.links-footer {
-  margin: 15px
-}
-
 .site-footer {
   border: 2px solid #fff;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
   text-align: center;
-  padding: 5px 30px;
+  padding: 20px 30px;
   margin: 20px 10px;
 }
 
+.links-footer {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Add spacing between icons */
+  margin-bottom: 10px; /* Space between icons and text */
+}
+
+.links-footer img {
+  width: 50px;
+  height: auto;
+  vertical-align: middle; /* Aligns icons properly */
+}
 
 .site-footer a.footer-link {
   margin: 5px;
