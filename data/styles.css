@@ -129,9 +129,14 @@ body {
   margin: 0px 10px;
 }
 
+.body-bubble h2 {
+  text-align: center;
+}
+
 .body-bubble p {
   font-size: 20px;
   text-align: left;
+  text-indent: 35px;
 }
 
 /* Footer styling */
