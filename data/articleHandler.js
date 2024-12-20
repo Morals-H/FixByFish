@@ -6,11 +6,11 @@ function togglePanel() {
     if (panel.style.right === '0px') {
         panel.style.right = '-300px';
         tabs.style.right = '0px';
-        icon.src = '/images/icons/Tabs.png';
+        icon.src = '/images/Tabs.png';
     } else {
         panel.style.right = '0px';
         tabs.style.right = '250px';
-        icon.src = '/images/icons/Exit.png';
+        icon.src = '/images/Exit.png';
     }
 }
 
