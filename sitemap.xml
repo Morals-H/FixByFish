@@ -2,47 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://fixbyfish.com/</loc>
+    <loc>https://fix-by.com/</loc>
     <lastmod>2024-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Echo Article -->
-  <url>
-    <loc>https://fixbyfish.com/articles/echoai/</loc>
-    <lastmod>2024-11-16</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- F&F Nether Article -->
-  <url>
-    <loc>https://fixbyfish.com/articles/f&amp;fnether/</loc>
-    <lastmod>2024-11-16</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Ink & Yuki Article -->
-  <url>
-    <loc>https://fixbyfish.com/articles/ink&amp;yuki/</loc>
-    <lastmod>2024-11-16</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Tri-Tact Article -->
-  <url>
-    <loc>https://fixbyfish.com/articles/tritact/</loc>
-    <lastmod>2024-11-17</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
   <!-- Privacy Policy -->
   <url>
-    <loc>https://fixbyfish.com/articles/privacypolicy/</loc>
+    <loc>https://fix-by.com/articles/privacypolicy/</loc>
     <lastmod>2024-11-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
