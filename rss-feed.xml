@@ -8,6 +8,115 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Nov 2024 22:22:42 +0000</lastBuildDate>
 
+  <!-- Echo Article -->
+    <item>
+      <title>Echo Ai</title>
+      <link>https://fixbyfish.com/articles/echoai/</link>
+      <description><![CDATA[
+                <h2>Project</h2>
+                <p>Echo AI was a project that aimed to allow players in the MMO Graal Online Classic to communicate fully with OpenAI's ChatGPT within the game. Echo only ran from July 23 to July 28, 2024, before the Graal Administration Staff shut it down. Echo accumulated thousands of messages from hundreds of unique users in its short run-time.</p>
+                <br>
+
+                <h2>Technical</h2>
+                <p>Echo was a relatively simple program written in AutoHotkey Version 2 (AHKV2). The program checked for private messages (PMs), and if one were found, it opened the messages and read both the sender's username and message. Echo took this information and sent it to the ChatGPT API, then awaited a response. When Echo received a response, it read out the message in the game's open chat and logged both the message and the response.</p>
+                <p>Echo also had a few features, such as command detection. If a player attempted to force the bot to use an in-game command, it would detect and drop the message—except for Graal Online Classic's built-in Rock-Paper-Scissors minigame. Echo could play this game with players by choosing a random number that would determine their choice of rock, paper, or scissors.</p>
+                <p>During the first few days, as the bot was running, I made hotfixes as issues arose, leading to a small group of people believing the bot was fake. It would occasionally double-type a letter or miss one in the first two days. This was caused by using Firefox as my browser initially; Firefox has a delay on Graal Online Classic and does not allow the paste feature. I was making the bot write out each letter one after the other with a delay between them. After learning that Chrome and Chromium-based browsers allowed for copy-and-paste functionality, I moved to Microsoft Edge.</p>
+                <br>
+
+                <h2>What Happened</h2>
+                <p>The account received a warning from the Graal Online Classic administration staff simply saying "No," and I immediately ceased using the program. After double-checking the Graal Online Code of Conduct, I emailed the staff to ask for more context, as, from my understanding, I was within the guidelines. I received an email stating, "Any program used to operate an account in place of a person is prohibited." I attempted to have a conversation but have yet to receive any messages in return, even after several follow-up emails.</p>
+                <br>
+
+                <h2>Final Thoughts</h2>
+                <p>I would have liked to continue this project, as seeing how players interacted with the bot was a lot of fun. It was cute to see ChatGPT recognize recurring players and jokes in the conversations, but, as with anything on the internet, there were some less-than-appropriate messages. While there was an attempt to curate ChatGPT, sometimes it would respond to less desirable messages. Echo still needed some work before it could be fully autonomous. Now and then, it would get stuck, and I'd have to restart the program. I had also considered switching to Ollama for several reasons, namely cost, as Ollama could be self-hosted.</p>
+                <p>Ultimately, Echo was cut too short, but the experience was delightful, and I'm glad I did it. It was by far my most popular project.</p>
+                <br>
+      ]]></description>
+      <pubDate>Sun, 17 Nov 2024 22:22:42 +0000</pubDate>
+      <guid>https://fixbyfish.com/articles/echoai/</guid>
+    </item>
+    <!-- F&F Nether Article -->
+    <item>
+      <title>Fish &amp; Friends: Nether Resurrected</title>
+      <link>https://fixbyfish.com/articles/f&amp;fnether/</link>
+      <description><![CDATA[
+                <h2>Project</h2>
+                <p>Fish & Friends was, at the time, the last server for the now-abandoned Nether Resurrected. Fish & Friends ran from December 24, 2023, to August 20, 2024.</p>
+                <br>
+
+                <h2>Technical</h2>
+                <p>Fish & Friends had an entirely reworked economy from the base game to give items more value. The core concept behind the reworks was giving items real value; if you completed a loot run and sold your excess items, you'd find you had enough money to cover medication and ammo but only had a small amount left over. Nothing was overpriced; generally, to get a mid-tier gun, you'd only have to do four or five loot runs if you were careful.</p>
+                <p>In Fish & Friends, Enemies had more health, were generally more aware, did more damage, and had significantly higher spawn rates. Many items, clothing, and weapons could not be purchased from the store and the ones that could be expensive to push crafting and scavenging heavily.</p>
+                <p>In its lifetime, the server saw 323 unique players, averaging 52 unique players a month. Sixteen players reached the maximum level, but the average player level was only four.</p>
+                <br>
+
+                <h2>What Happened</h2>
+                <p>No event happened that caused me to stop hosting the server; there wasn't a need for it anymore. Several other servers had popped back up, and with the tiny community that still plays Nether Resurrected, it just wasn't worth having around. If it is ever needed again, I'll gladly back the server up so the community can have a place to play together.</p>
+                <br>
+
+                <h2>Final Thoughts</h2>
+                <p>Nether was a decent game with great potential, and it's sad to see it on its deathbed. The current owners at Fredaikis have no interest in the IP and have left it to rot.</p>
+                <p>With that said, I love this game and the community, so I will continue to be active on the Steam discussion board, but I have no hope of seeing anything else from this property.</p>
+                <br>
+      ]]></description>
+      <pubDate>Sun, 17 Nov 2024 22:22:42 +0000</pubDate>
+      <guid>https://fixbyfish.com/articles/f&amp;fnether/</guid>
+    </item>
+    
+    <!-- Ink & Yuki Article -->
+    <item>
+      <title>Ink &amp; Yuki</title>
+      <link>https://fixbyfish.com/articles/ink&amp;yuki/</link>
+      <description><![CDATA[
+                <h2>Project</h2>
+                <p>Ink & Yuki is a cooperative collectathon game published on June 15, 2022, made for a two-week Game Jam called Meow Jam.</p>
+                <br>
+
+                <h2>Technical</h2>
+                <p>Ink & Yuki was made in Unity, and utilized Photon Pun 2 hosting for the multiplayer servers.</p>
+                <p>The art was entirely made from scratch because I wanted something entirely unique, and I think I achieved my goal. The game is monochrome in a 3D space with cute cartoony visuals. I had many challenges in making the game visually readable; some of my solutions can be seen with the outlines, the distance particles, and the landing shadow.</p>
+                <br>
+
+                <h2>What Happened</h2>
+                <p>At one point, we were in talks with a publisher, but they needed a much quicker turnout than my team could handle, so we had to decline. Since then, nothing has happened with the game.</p>
+                <br>
+
+                <h2>Final Thoughts</h2>
+                <p>Ink & Yuki is a project I look back on very fondly. I've been interested in continuing it since, but I failed at producing anything as special as I did in the first two weeks. It might be something I revisit in the future, but as it stands, it's among my favorite projects and has a special place in my heart.</p>
+                <p>The game is playable <a href="https://shawnwolf.itch.io/ink-yuki">here</a>, a short demo with a lot of jankyness.</p>
+                <br>
+      ]]></description>
+      <pubDate>Sun, 16 Nov 2024 22:22:42 +0000</pubDate>
+      <guid>https://fixbyfish.com/articles/ink&amp;yuki/</guid>
+    </item>
+    
+    <!-- Tri-Tact Article -->
+    <item>
+      <title>Tri-Tact</title>
+      <link>https://fixbyfish.com/articles/tritact/</link>
+      <description><![CDATA[
+                <h2>Project</h2>
+                <p>Tritact is a simple turn-based board game released for Android and Windows on October 5, 2023.</p>
+                <br>
+
+                <h2>Technical</h2>
+                <p>Tritact used rock-paper-scissors mechanics on a 3x3 square; each player got eight pieces. With each turn, the players could move 3 of their pieces, and then the board was compared after each player had moved; this continued until at least one player couldn't continue.</p>
+                <p>The players could create their decks between rounds; they could then use this deck against a bot that chose a random deck and would do random movements. I intended to add multiplayer and started working on it.</p>
+                <br>
+                
+                <h2>What Happened</h2>
+                <p>The game concept would only really appeal to a niche audience; it's a very simple game with minimal graphics and can be unclear at first. Since it never found an audience, I ceased working on it; however, it's fully playable.</p>
+                <br>
+                
+                <h2>Final Thoughts</h2>
+                <p>I made this game the week before I moved to Cleveland; it was my last project in my hometown, so it was special. I didn't have high hopes for it, but I had an idea and went for it, and I'm content with that.</p>
+                <p>The game is playable <a href="https://shawnwolf.itch.io/tritact">here</a>.</p>
+                <br>
+      ]]></description>
+      <pubDate>Sun, 16 Nov 2024 22:22:42 +0000</pubDate>
+      <guid>https://fixbyfish.com/articles/tritact/</guid>
+    </item>
+
     <!-- Placeholder Article -->
     <item>
       <title>Placeholder</title>
