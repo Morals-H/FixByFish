@@ -29,67 +29,43 @@
                 </div>
             </div>
             <div class="body-bubble">
+                <section id="project" class="content-block">
+                    <h2>Project</h2>
+                    <p>
+                    Nyra AI was a major overhaul of my earlier project, Echo AI, featuring significant improvements in functionality, stability, and scope. This enhanced version operated under the name “Nyra” during its testing phase. The bot was active intermittently from April 25, 2025, to May 22, 2025, demonstrating more advanced behavior and broader capabilities than its predecessor.
+                    </p>
+                </section>
 
-                <h2>Project</h2>
-                <p>
-                    Echo AI was a project that aimed to allow players in the MMO Graal Online 
-                    Classic to communicate fully with OpenAI's ChatGPT within the game. Echo 
-                    only ran from July 23 to July 28, 2024, before the Graal Administration Staff 
-                    shut it down. Echo accumulated thousands of messages from hundreds of unique 
-                    users in its short run-time. Nyra was me revisiting the project and making
-                    massive improvements to it. In this test run the project was known as Nyra. 
-                    Nyra ran off and on from April 25, 2025 to May 22, 2025, before the Graal Administration Staff
-                    shut it down by banning the Nyra account, the Echo account, and my main account.
-                </p>
-                <br>
+                <section id="technical" class="content-block">
+                    <h2>Technical</h2>
+                    <article>
+                    <p>
+                        While Nyra shared the same core concept as Echo, it was entirely rebuilt from the ground up in Python. The bot was designed to monitor in-game messages, read them in real time, and forward the text to a locally hosted instance of the Qwen 2 large language model (LLM). Once a response was generated, Nyra would post it publicly in Graal Online Classic's chat, enabling conversational AI interaction within the game environment.
+                    </p><p>
+                        In addition to Echo's original features, Nyra introduced command detection. If a user attempted to issue an in-game command via chat, Nyra could identify and suppress it—except for commands related to the game's built-in dance emotes, private messaging, and the Rock-Paper-Scissors minigame.
+                    </p> <p>
+                        Nyra also included a custom message filtering system that scanned both incoming and outgoing messages for harmful or inappropriate content. This filter was built to identify and block profanity, hate speech, and other rule-violating communication. However, no system is perfect—some content still slipped through due to evasion techniques and detection limitations. These edge cases occasionally led to users abusing the system, despite ongoing updates to the blacklist.
+                    </p>
+                    </article>
+                </section>
 
-                <h2>Technical</h2>
-                <p> 
-                    Nyra was fairly similar to her sister in how she operated, however version
-                    two was completely remade from the ground up in Python. Nyra was programmed
-                    to check for messages, read any if available, send the data to a locally hosted
-                    model of the Qwen 2 LLM, await a response, and then respond to the message in 
-                    Graal Online Classic's public chat using the response it received. 
-                </p><p>
-                    Nyra had all the same features as Echo did with a few additions, such as command detection. 
-                    If a player attempted to force the bot to use an in-game command, it would detect and drop 
-                    the message—except for Graal Online Classic's built-in dance feature, private messaging system, and 
-                    Rock-Paper-Scissors minigame.
-                </p><p>
-                    Nyra also included a message filtering system designed to scan both incoming and outgoing messages for 
-                    potentially harmful or inappropriate content. This feature aimed to automatically detect and block 
-                    profanity, hate speech, or any other form of communication that violated the community guidelines or 
-                    posed a threat to user safety. Despite these precautions, the filtering system was not foolproof—certain 
-                    harmful messages were still able to bypass the filters due to limitations in detection accuracy or users 
-                    finding ways to circumvent the system. As a result, some flagged accounts continued to engage in behavior 
-                    that ultimately led to their suspension or permanent bans by the moderation team.
-                </p>
-                <br>
+                <section id="what-happened" class="content-block">
+                    <h2>What Happened</h2>
+                    <article>
+                    <p>
+                        Nyra operated without major incident for a while. Occasionally, the bot experienced chat resets or was manually moved by administrators, but nothing that raised serious flags. During this period, I closely monitored logs and regularly updated the filter system to patch any loopholes or overlooked keywords.
+                    </p><p>
+                        Unfortunately, a turning point came when a user deliberately used Nyra to harass other players. This behavior was quickly reported to the Graal Online moderation team. Despite the improvements in content filtering and moderation, the incident resulted in administrative action. The Nyra account, the older Echo account, and my personal main account were all permanently banned from the platform.
+                    </p>
+                    </article>
+                </section>
 
-                <h2>What Happened</h2>
-                <p>
-                    The account operated steadily for quite some time, maintaining a relatively low profile aside from the 
-                    occasional chat reset or being manually relocated by the administration team. Throughout this period, 
-                    I remained proactive in monitoring the message logs, carefully reviewing conversations to identify any 
-                    inappropriate language or terms that had managed to slip past the filters. Whenever I discovered such 
-                    instances, I would immediately update the blacklist to tighten the filtering system and prevent repeat offenses.
-                </p><p>
-                    Despite these efforts to uphold a clean and respectful environment, the situation took a turn when a player 
-                    deliberately used Nyra to harass others within the game. This behavior was quickly reported by the affected 
-                    players, drawing direct attention from the game's moderation team. Unfortunately, due to the severity of the
-                    incident and the nature of the reports, the account was permanently banned, marking the end of Nyra’s 
-                    operation within that environment.
-                </p>
-                <br>
-
-                <h2>Final Thoughts</h2>
-                <p>
-                    Nyra, and Echo before her were both amazing projects, and I have genuinely not had as much
-                    fun on any other project as I had with them. I'm interested in continuing to do more AI retrofitting, 
-                    but maybe not just in the world of Graal. It was unfortunate how people used her to put others down, but 
-                    I will strive to make improvements in the future.
-                </p>
-                <br>
+                <section id="final-thoughts" class="content-block">
+                    <h2>Final Thoughts</h2>
+                    <p>
+                    Both Nyra and Echo were incredibly rewarding projects for me. I haven’t had as much fun working on any other personal project, and the experience deepened my passion for AI integration in unconventional spaces. While it's unfortunate that the tool was misused, the lessons I learned were invaluable. I remain excited about exploring future AI retrofitting—though likely outside of Graal—and will continue striving to make smarter, safer systems moving forward.
+                    </p>
+                </section>
             </div>
         </div>
         <!-- Recommended Articles -->
