@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<html>
+    <style>
+        body {
+            background-color: #050505;
+            color: #fff;
+        }
+    </style>
+    <div id="head"></div>
+    <link rel="stylesheet" href="/data/styles.css">
+    <meta name="description" content="Nyra AI was a project that aimed to allowed players in the MMO Graal Online Classic to chat with Qwen2 ingame.">
+<!-- Site Body -->
+<body>
+    <noscript>
+    <p>This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+    </noscript>
+      
+    <div id="navbar"></div>
+    <div class="header-image" style="background: url('./Header.png') no-repeat center center/cover;"></div>
+    <div class="container">
+        <div class="main-content">
+            <div class="txt-header-container">
+                <div class="txt-header-bubble">
+                    <h1>Nyra AI: Qwen2 in Graal</h1>
+                    <h3>6/22/2025</h3>
+                </div>
+            </div>
+            <div class="body-bubble">
+
+                <h2>Project</h2>
+                <p>
+                    Echo AI was a project that aimed to allow players in the MMO Graal Online 
+                    Classic to communicate fully with OpenAI's ChatGPT within the game. Echo 
+                    only ran from July 23 to July 28, 2024, before the Graal Administration Staff 
+                    shut it down. Echo accumulated thousands of messages from hundreds of unique 
+                    users in its short run-time. Nyra was me revisiting the project and making
+                    massive improvements to it. In this test run the project was known as Nyra. 
+                    Nyra ran off and on from April 25, 2025 to May 22, 2025, before the Graal Administration Staff
+                    shut it down by banning the Nyra account, the Echo account, and my main account.
+                </p>
+                <br>
+
+                <h2>Technical</h2>
+                <p> 
+                    Nyra was fairly similar to her sister in how she operated, however version
+                    two was completely remade from the ground up in Python. Nyra was programmed
+                    to check for messages, read any if available, send the data to a locally hosted
+                    model of the Qwen 2 LLM, await a response, and then respond to the message in 
+                    Graal Online Classic's public chat using the response it received. 
+                </p><p>
+                    Nyra had all the same features as Echo did with a few additions, such as command detection. 
+                    If a player attempted to force the bot to use an in-game command, it would detect and drop 
+                    the message—except for Graal Online Classic's built-in dance feature, private messaging system, and 
+                    Rock-Paper-Scissors minigame.
+                </p><p>
+                    Nyra also included a message filtering system designed to scan both incoming and outgoing messages for 
+                    potentially harmful or inappropriate content. This feature aimed to automatically detect and block 
+                    profanity, hate speech, or any other form of communication that violated the community guidelines or 
+                    posed a threat to user safety. Despite these precautions, the filtering system was not foolproof—certain 
+                    harmful messages were still able to bypass the filters due to limitations in detection accuracy or users 
+                    finding ways to circumvent the system. As a result, some flagged accounts continued to engage in behavior 
+                    that ultimately led to their suspension or permanent bans by the moderation team.
+                </p>
+                <br>
+
+                <h2>What Happened</h2>
+                <p>
+                    The account operated steadily for quite some time, maintaining a relatively low profile aside from the 
+                    occasional chat reset or being manually relocated by the administration team. Throughout this period, 
+                    I remained proactive in monitoring the message logs, carefully reviewing conversations to identify any 
+                    inappropriate language or terms that had managed to slip past the filters. Whenever I discovered such 
+                    instances, I would immediately update the blacklist to tighten the filtering system and prevent repeat offenses.
+                </p><p>
+                    Despite these efforts to uphold a clean and respectful environment, the situation took a turn when a player 
+                    deliberately used Nyra to harass others within the game. This behavior was quickly reported by the affected 
+                    players, drawing direct attention from the game's moderation team. Unfortunately, due to the severity of the
+                    incident and the nature of the reports, the account was permanently banned, marking the end of Nyra’s 
+                    operation within that environment.
+                </p>
+                <br>
+
+                <h2>Final Thoughts</h2>
+                <p>
+                    Nyra, and Echo before her were both amazing projects, and I have genuinely not had as much
+                    fun on any other project as I had with them. I'm interested in continuing to do more AI retrofitting, 
+                    but maybe not just in the world of Graal. It was unfortunate how people used her to put others down, but 
+                    I will strive to make improvements in the future.
+                </p>
+                <br>
+            </div>
+        </div>
+        <!-- Recommended Articles -->
+        <div id="recommended"></div>
+        
+        <!-- Site Footer -->
+        <div id="footer"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/data/guiHandler.js"></script>
+    <script src="/data/articleHandler.js"></script>
+
+</body>
+
+</html>
