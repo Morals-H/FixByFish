@@ -1,66 +1,73 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-<html>
-<!-- Site Head -->
-    <head> 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZELLS7ZJQE"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-ZELLS7ZJQE');
-        </script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix By Fish | Personal Website</title>
+    <meta name="description" content="A personal website covering a wide range of projects and topics.">
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="/data/styles.css">
     <style>
         body {
             background-color: #050505;
             color: #fff;
         }
     </style>
-    <div id="head"></div>
-    <link rel="stylesheet" href="/data/styles.css">
-    <meta name="description" content="A personal website covering a wide range of projects and topics">
-<!-- Site Body -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZELLS7ZJQE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ZELLS7ZJQE');
+    </script>
+</head>
+
 <body>
+
     <noscript>
-    <p>This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+        <p>This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
     </noscript>
-      
+
+    <div id="head"></div>
     <div id="navbar"></div>
+
     <div class="header-image" style="background: url('/images/headers/placeholder/Header.png') no-repeat center center/cover;"></div>
+
     <div class="container">
         <div class="main-content">
+
             <div class="txt-header-container">
                 <div class="txt-header-bubble">
                     <h1>Fix By Fish</h1>
                 </div>
             </div>
-            <div class="body-bubble">
-                <h2>Welcome</h2>
-                <p>
-                    Hi, my name is Shawn, I'm an IPC Certified technician based out of Ohio. This is my personal 
-                    website for sharing projects and interests.
-                </p>
-                <br>
 
-                <h2>Why make a website?</h2>
-                <p>
-                    I like making stuff and sharing my projects, but I don't like the current state of social media. 
-                    This site is my nerdy little corner of the internet where I can share until my heart's 
-                    content while avoiding the toxic communities of mainstream social media or the addictive 
-                    cycle of posting for engagement. If people find my site interesting, it's perfect, but this 
-                    is more for me than anyone else.
-                </p>
-                <br>
+            <div class="body-bubble">
+
+                <section id="welcome" class="content-block">
+                    <h2>Welcome</h2>
+                    <p>
+                        Hi, my name is Shawn. I'm an IPC Certified technician based out of Ohio. This is my personal website for sharing projects and interests.
+                    </p>
+                </section>
+
+                <section id="purpose" class="content-block">
+                    <h2>Why Make a Website?</h2>
+                    <p>
+                        I enjoy making things and sharing my projects, but I don't like the current state of social media. This site is my nerdy little corner of the internet where I can post freely while avoiding the toxic communities and engagement-driven cycles of mainstream platforms. If people enjoy it, that's great, but primarily this space is for me.
+                    </p>
+                </section>
+
             </div>
         </div>
+
         <!-- Recommended Articles -->
         <div id="recommended"></div>
-        
+
         <!-- Site Footer -->
         <div id="footer"></div>
     </div>
@@ -70,5 +77,4 @@
     <script src="/data/articleHandler.js"></script>
 
 </body>
-
 </html>
