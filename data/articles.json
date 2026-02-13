@@ -4,6 +4,7 @@
     { "title": "Nyra Ai", "url": "/articles/nyraai" , "desc": "Qwen2 Integration in Graal Online Classic"},
     { "title": "F&F Nether", "url": "/articles/f&fnether" , "desc": "One of the last Nether Resurrected servers"},
     { "title": "Ink & Yuki", "url": "/articles/ink&yuki" , "desc": "Cooperative collectathon with a cartoony artstyle"},
+    { "title": "KICAD Companion", "url": "/articles/kicadcompanion" , "desc": "Companion application for KICAD"},
     { "title": "Tri-Tact", "url": "/articles/tritact" , "desc": "Minimalist tactical board game with RPS mechanics"},
     { "title": "Nature Gallery", "url": "/articles/naturegallery" , "desc": "My personal photography"},
     { "title": "Privacy Policy", "url": "/articles/privacypolicy" , "desc": "What do we collect?"}
