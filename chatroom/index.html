@@ -109,7 +109,7 @@
             const el = document.createElement("div");
             el.style.marginBottom = "10px";
             el.innerHTML = `
-                <div style="font-size:0.8em; color:#888;">
+                <div style="font-size:0.8em; color:#fff;">
                     ${esc(m.name || "Guest")} • ${new Date(m.created).toLocaleString()}
                 </div>
                 <div>${esc(m.text || "")}</div>
@@ -125,7 +125,7 @@
                 list.items.forEach(render);
             } catch (err) {
                 console.error(err);
-                messagesDiv.innerHTML = `<div style="color:#ff8080;">Error loading messages (check console)</div>`;
+                messagesDiv.innerHTML = `<div style="color:#fff;">Error loading messages (check console)</div>`;
             }
         };
 
