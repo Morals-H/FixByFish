@@ -1,5 +1,6 @@
 [
     { "title": "Home", "url": "/", "desc": "Fix by Fish"},
+    { "title": "Chatroom", "url": "/chatroom" , "desc": "Oldschool chatroom for all."},
     { "title": "Echo Ai", "url": "/articles/echoai" , "desc": "ChatGPT Integration in Graal Online Classic"},
     { "title": "Nyra Ai", "url": "/articles/nyraai" , "desc": "Qwen2 Integration in Graal Online Classic"},
     { "title": "F&F Nether", "url": "/articles/f&fnether" , "desc": "One of the last Nether Resurrected servers"},
