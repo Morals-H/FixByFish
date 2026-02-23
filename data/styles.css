@@ -274,4 +274,20 @@ body {
   .links-footer img {
     width: 30px;
   }
+
+   /* chat */
+  #community-chat .chat-row {
+    flex-wrap: wrap;
+  }
+
+  #community-chat .chat-name,
+  #community-chat .chat-msg {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+  }
+
+  #community-chat .chat-send {
+    flex: 1 1 100% !important;
+    width: 100%;
+  }
 }

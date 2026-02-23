@@ -46,21 +46,21 @@
                 <section id="community-chat" class="content-block">
 
                     <div id="messages"
-                        style="height:420px; overflow-y:auto; border:1px solid #fff; border-radius:6px; padding:10px; margin-bottom:10px; background:#050505;">
+                        style="height:420px; overflow-y:auto; border:1px solid #fff; border-radius:6px; padding:10px; background:#050505;">
                     </div>
 
                     <!-- Single-line chat input: name | message | send -->
-                    <div style="display:flex; gap:8px; padding:8px 12px;">
-                        <input id="displayName" placeholder="name" maxlength="24"
-                            style="flex:0 0 10%; min-width:120px; padding:8px; background:#050505; color:#fff; border:1px solid #fff; border-radius:4px; font:inherit;">
+                    <div class="chat-row" style="display:flex; gap:8px; padding:8px 12px;">
+                    <input class="chat-name" id="displayName" placeholder="name" maxlength="24"
+                        style="flex:0 0 10%; min-width:120px; padding:8px; background:#050505; color:#fff; border:1px solid #fff; border-radius:4px; font:inherit;">
 
-                        <input id="msg" placeholder="Type a message..."
-                            style="flex:1; padding:8px; background:#050505; color:#fff; border:1px solid #fff; border-radius:4px; font:inherit;">
+                    <input class="chat-msg" id="msg" placeholder="Type a message..."
+                        style="flex:1; padding:8px; background:#050505; color:#fff; border:1px solid #fff; border-radius:4px; font:inherit;">
 
-                        <button id="sendBtn" type="button"
-                            style="padding:8px 14px; background:#050505; border:none; border:1px solid #fff; border-radius:4px; color:#fff; cursor:pointer; font:inherit;">
-                            Send
-                        </button>
+                    <button class="chat-send" id="sendBtn" type="button"
+                        style="padding:8px 14px; background:#050505; border:1px solid #fff; border-radius:4px; color:#fff; cursor:pointer; font:inherit;">
+                        Send
+                    </button>
                     </div>
                 </section>
             </div>
