@@ -128,6 +128,11 @@ body {
 .body-bubble h2 {
   text-align: center;
 }
+.body-bubble h3 {
+  font-size: 20px;
+  padding: 5px 30px;
+  text-align: center;
+}
 .body-bubble p {
   font-size: 20px;
   text-align: left;
