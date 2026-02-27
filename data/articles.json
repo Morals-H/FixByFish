@@ -1,7 +1,6 @@
 [
     { "title": "Home", "url": "/", "desc": "Fix by Fish"},
     { "title": "Chatroom", "url": "/chatroom" , "desc": "Oldschool chatroom for all."},
-    { "title": "AI Stance", "url": "/articles/ai" , "desc": "My personal stance on AI"},
     { "title": "AI in Graal", "url": "/articles/echo&nyra" , "desc": "AI Integration in Graal Online Classic"},
     { "title": "F&F Nether", "url": "/articles/f&fnether" , "desc": "One of the last Nether Resurrected servers"},
     { "title": "Ink & Yuki", "url": "/articles/ink&yuki" , "desc": "Cooperative collectathon with a cartoony artstyle"},
