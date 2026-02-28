@@ -100,7 +100,7 @@ async function sendMessage() {
   elMsg.focus();
 
   try {
-    const res = await fetch("http://127.0.0.1:8090/api/chat/send", {
+    const res = await fetch("https://independent-dead.pockethost.io/api/chat/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, text }),
