@@ -1,131 +1,125 @@
-import PocketBase from "https://cdn.jsdelivr.net/npm/pocketbase/dist/pocketbase.es.mjs";
+import PocketBase from "https://esm.sh/pocketbase@0.25.1";
 
-const pb = new PocketBase("https://independent-dead.pockethost.io");
+const pb = new PocketBase("http://127.0.0.1:8090");
+const TOPIC = "example";
 
-const $ = (id) => document.getElementById(id);
+const elMessages = document.getElementById("messages");
+const elStatus = document.getElementById("chatStatus");
+const elName = document.getElementById("displayName");
+const elMsg = document.getElementById("msg");
+const elSend = document.getElementById("sendBtn");
 
-const messagesDiv = $("messages");
-const msgInput = $("msg");
-const nameInput = $("displayName");
-const sendBtn = $("sendBtn");
+// --- small helpers ---
+function setStatus(text, isError = false) {
+  elStatus.textContent = text;
+  elStatus.style.color = isError ? "#ffb3b3" : "#c8ffc8";
+}
 
-const NAME_KEY = "chatDisplayName";
-
-// Escape HTML (prevents XSS)
-const esc = (s) =>
-  String(s ?? "")
+function escapeHtml(str) {
+  return String(str)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
 
-const setName = (raw) => {
-  const n = String(raw ?? "").trim().replace(/\s+/g, " ").slice(0, 24);
-  if (!n) localStorage.removeItem(NAME_KEY);
-  else localStorage.setItem(NAME_KEY, n);
-  return n;
-};
+function appendMessage({ name, text, ts }, isLocal = false) {
+  const time = ts ? new Date(ts) : new Date();
+  const hhmm = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
-const getName = () => {
-  const n = (localStorage.getItem(NAME_KEY) || "").trim();
-  return n ? n : "Guest";
-};
+  const wrapper = document.createElement("div");
+  wrapper.style.padding = "6px 0";
+  wrapper.style.borderBottom = "1px solid rgba(255,255,255,0.08)";
 
-// Render a single message
-const render = (m) => {
-  const el = document.createElement("div");
-  el.style.marginBottom = "10px";
-  el.innerHTML = `
-    <div style="font-size:0.8em; color:#fff; opacity:0.9;">
-      ${esc(m.name || "Guest")} • ${new Date(m.created).toLocaleString()}
+  wrapper.innerHTML = `
+    <div style="display:flex; gap:10px; align-items:baseline;">
+      <span style="opacity:0.7; font-size:0.85em; flex:0 0 auto;">${escapeHtml(hhmm)}</span>
+      <span style="font-weight:700; flex:0 0 auto;">${escapeHtml(name || "anon")}</span>
+      <span style="opacity:${isLocal ? "0.95" : "0.9"}; flex:1; word-break:break-word;">${escapeHtml(text || "")}</span>
     </div>
-    <div style="white-space:pre-wrap;">${esc(m.text || "")}</div>
   `;
-  messagesDiv.appendChild(el);
-};
 
-// If the user is close to the bottom, keep them pinned there.
-// If they scrolled up to read history, don't force-scroll them.
-const isNearBottom = () => {
-  const threshold = 40; // px from bottom
-  return (
-    messagesDiv.scrollHeight - messagesDiv.scrollTop - messagesDiv.clientHeight <
-    threshold
-  );
-};
+  elMessages.appendChild(wrapper);
+  elMessages.scrollTop = elMessages.scrollHeight;
+}
 
-// Load the newest messages
-const load = async () => {
+// Persist display name locally
+const savedName = localStorage.getItem("chat_display_name");
+if (savedName) elName.value = savedName;
+
+elName.addEventListener("input", () => {
+  localStorage.setItem("chat_display_name", elName.value.slice(0, 24));
+});
+
+// --- subscribe realtime ---
+async function connectRealtime() {
+  setStatus("Connecting realtime…");
+
   try {
-    const stickToBottom = isNearBottom();
+    await pb.realtime.subscribe(TOPIC, (e) => {
+      // PocketBase delivers subscription messages like:
+      // { name: "example", data: "...json..." }
+      let payload = null;
 
-    // Get newest 50, then reverse to show oldest->newest
-    const list = await pb.collection("messages").getList(1, 50, { sort: "-created" });
+      try {
+        payload = typeof e?.data === "string" ? JSON.parse(e.data) : e?.data;
+      } catch (_) {
+        // ignore malformed payloads
+      }
 
-    messagesDiv.innerHTML = "";
-    list.items.reverse().forEach(render);
+      if (payload?.type === "chat") {
+        appendMessage(payload, false);
+      }
+    });
 
-    if (stickToBottom) {
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    setStatus("Connected ✅  (realtime subscribed)");
+  } catch (err) {
+    console.error(err);
+    setStatus("Realtime connection failed. Check PB URL/CORS + server running.", true);
+  }
+}
+
+connectRealtime();
+
+// --- send message (via server endpoint) ---
+async function sendMessage() {
+  const name = (elName.value || "").trim().slice(0, 24);
+  const text = (elMsg.value || "").trim().slice(0, 500);
+
+  if (!name) {
+    setStatus("Enter a name first.", true);
+    elName.focus();
+    return;
+  }
+  if (!text) return;
+
+  // Optimistic local echo
+  appendMessage({ type: "chat", name, text, ts: new Date().toISOString() }, true);
+  elMsg.value = "";
+  elMsg.focus();
+
+  try {
+    const res = await fetch("http://127.0.0.1:8090/api/chat/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, text }),
+    });
+
+    if (!res.ok) {
+      const out = await res.json().catch(() => ({}));
+      setStatus(out?.error || "Send failed.", true);
+    } else {
+      setStatus("Sent ✅");
     }
   } catch (err) {
     console.error(err);
-    messagesDiv.innerHTML = `<div style="color:#fff;">Error loading messages (check console)</div>`;
+    setStatus("Send failed (network/CORS).", true);
   }
-};
+}
 
-// init name from storage
-nameInput.value = localStorage.getItem(NAME_KEY) || "";
+elSend.addEventListener("click", sendMessage);
 
-// autosave name as user types (debounced)
-let nameTimer = null;
-nameInput.addEventListener("input", () => {
-  clearTimeout(nameTimer);
-  nameTimer = setTimeout(() => setName(nameInput.value), 200);
+elMsg.addEventListener("keydown", (ev) => {
+  if (ev.key === "Enter") sendMessage();
 });
-
-const setSending = (sending) => {
-  sendBtn.disabled = !!sending;
-  sendBtn.style.opacity = sending ? "0.6" : "1";
-  sendBtn.style.cursor = sending ? "not-allowed" : "pointer";
-};
-
-// Send message
-const send = async () => {
-  const text = msgInput.value.trim();
-  if (!text) return;
-
-  // save latest typed name
-  setName(nameInput.value);
-
-  try {
-    setSending(true);
-    await pb.collection("messages").create({ name: getName(), text });
-
-    msgInput.value = "";
-    // Load immediately after send so you see it right away
-    await load();
-  } catch (err) {
-    console.error(err);
-    alert("Failed to send message (check console).");
-  } finally {
-    setSending(false);
-  }
-};
-
-sendBtn.addEventListener("click", send);
-
-// Enter sends (Shift+Enter = newline)
-msgInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault();
-    send();
-  }
-});
-
-// ---- STARTUP ----
-await load();
-
-// Refresh every 2 seconds
-setInterval(load, 2000);
