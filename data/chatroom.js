@@ -1,26 +1,19 @@
 import PocketBase from "https://esm.sh/pocketbase@0.25.1";
 
-// ==============================
-// CONFIG
-// ==============================
-const PB_BASE = "https://independent-dead.pockethost.io"; // <-- your PocketHost base URL (no trailing slash)
-const TOPIC = "example";                                 // <-- your realtime topic name
+const PB_BASE = "https://independent-dead.pockethost.io"; // no trailing slash
 const pb = new PocketBase(PB_BASE);
 
-// ==============================
-// DOM
-// ==============================
-const elMessages = document.getElementById("messages");
-const elStatus   = document.getElementById("chatStatus");
-const elName     = document.getElementById("displayName");
-const elMsg      = document.getElementById("msg");
-const elSend     = document.getElementById("sendBtn");
+const SEND_URL = `${PB_BASE}/api/chat/send`;
+const TOPIC = "example";
 
-// ==============================
-// UI helpers
-// ==============================
+const elMessages = document.getElementById("messages");
+const elStatus = document.getElementById("chatStatus");
+const elName = document.getElementById("displayName");
+const elMsg = document.getElementById("msg");
+const elSend = document.getElementById("sendBtn");
+
+// --- small helpers ---
 function setStatus(text, isError = false) {
-  if (!elStatus) return;
   elStatus.textContent = text;
   elStatus.style.color = isError ? "#ffb3b3" : "#c8ffc8";
 }
@@ -35,8 +28,6 @@ function escapeHtml(str) {
 }
 
 function appendMessage({ name, text, ts }, isLocal = false) {
-  if (!elMessages) return;
-
   const time = ts ? new Date(ts) : new Date();
   const hhmm = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
@@ -56,28 +47,24 @@ function appendMessage({ name, text, ts }, isLocal = false) {
   elMessages.scrollTop = elMessages.scrollHeight;
 }
 
-// ==============================
-// Persist display name
-// ==============================
+// Persist display name locally
 const savedName = localStorage.getItem("chat_display_name");
-if (savedName && elName) elName.value = savedName;
+if (savedName) elName.value = savedName;
 
-if (elName) {
-  elName.addEventListener("input", () => {
-    localStorage.setItem("chat_display_name", (elName.value || "").slice(0, 24));
-  });
-}
+elName.addEventListener("input", () => {
+  localStorage.setItem("chat_display_name", elName.value.slice(0, 24));
+});
 
-// ==============================
-// Realtime subscribe
-// ==============================
+// --- subscribe realtime ---
 async function connectRealtime() {
   setStatus("Connecting realtime…");
 
   try {
     await pb.realtime.subscribe(TOPIC, (e) => {
-      // Expecting: { name: "example", data: "...json..." }
+      // PocketBase delivers subscription messages like:
+      // { name: "example", data: "...json..." }
       let payload = null;
+
       try {
         payload = typeof e?.data === "string" ? JSON.parse(e.data) : e?.data;
       } catch (_) {
@@ -89,39 +76,34 @@ async function connectRealtime() {
       }
     });
 
-    setStatus("Connected ✅ (realtime subscribed)");
+    setStatus("Connected ✅  (realtime subscribed)");
   } catch (err) {
-    console.error("Realtime subscribe error:", err);
-    setStatus(`Realtime failed: ${err?.message || String(err)}`, true);
+    console.error(err);
+    setStatus("Realtime connection failed. Check PB URL/CORS + server running.", true);
   }
 }
 
 connectRealtime();
 
-// ==============================
-// Send message (POST -> server rebroadcasts to realtime topic)
-// ==============================
+// --- send message (via server endpoint) ---
 async function sendMessage() {
-  const name = (elName?.value || "").trim().slice(0, 24);
-  const text = (elMsg?.value || "").trim().slice(0, 500);
+  const name = (elName.value || "").trim().slice(0, 24);
+  const text = (elMsg.value || "").trim().slice(0, 500);
 
   if (!name) {
     setStatus("Enter a name first.", true);
-    elName?.focus();
+    elName.focus();
     return;
   }
   if (!text) return;
 
-  // optimistic local echo
+  // Optimistic local echo
   appendMessage({ type: "chat", name, text, ts: new Date().toISOString() }, true);
-
-  if (elMsg) {
-    elMsg.value = "";
-    elMsg.focus();
-  }
+  elMsg.value = "";
+  elMsg.focus();
 
   try {
-    const res = await fetch(`${PB_BASE}/api/chat/send`, {
+    const res = await fetch(SEND_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, text }),
@@ -129,23 +111,18 @@ async function sendMessage() {
 
     if (!res.ok) {
       const out = await res.json().catch(() => ({}));
-      setStatus(out?.error || `Send failed (${res.status}).`, true);
+      setStatus(out?.error || "Send failed.", true);
     } else {
       setStatus("Sent ✅");
     }
   } catch (err) {
-    console.error("Send error:", err);
-    setStatus(`Send failed: ${err?.message || String(err)}`, true);
+    console.error(err);
+    setStatus("Send failed (network/CORS).", true);
   }
 }
 
-// ==============================
-// Events
-// ==============================
-if (elSend) elSend.addEventListener("click", sendMessage);
+elSend.addEventListener("click", sendMessage);
 
-if (elMsg) {
-  elMsg.addEventListener("keydown", (ev) => {
-    if (ev.key === "Enter") sendMessage();
-  });
-}
+elMsg.addEventListener("keydown", (ev) => {
+  if (ev.key === "Enter") sendMessage();
+});
