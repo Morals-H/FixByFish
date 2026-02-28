@@ -1,9 +1,7 @@
-import PocketBase from "https://esm.sh/pocketbase@0.25.1";
-
-const PB_BASE = "https://independent-dead.pockethost.io"; // no trailing slash
+import PocketBase from "https://esm.sh/pocketbase@0.25.1"
+;
+const PB_BASE = "https://independent-dead.pockethost.io";
 const pb = new PocketBase(PB_BASE);
-
-const SEND_URL = `${PB_BASE}/api/chat/send`;
 const TOPIC = "example";
 
 const elMessages = document.getElementById("messages");
@@ -103,7 +101,7 @@ async function sendMessage() {
   elMsg.focus();
 
   try {
-    const res = await fetch(SEND_URL, {
+    const res = await fetch(`${PB_BASE}/api/chat/send`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, text }),
