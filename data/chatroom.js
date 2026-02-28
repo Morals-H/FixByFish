@@ -1,23 +1,19 @@
-import PocketBase from "https://esm.sh/pocketbase@0.25.1"
-;
+import PocketBase from "https://esm.sh/pocketbase@0.25.1";
+
 const PB_BASE = "https://independent-dead.pockethost.io";
 const pb = new PocketBase(PB_BASE);
-const TOPIC = "example";
 
+const COLLECTION = "Messages"; // <-- your collection name (case-sensitive)
+
+// DOM (change these IDs if your HTML uses different ones)
 const elMessages = document.getElementById("messages");
-const elStatus = document.getElementById("chatStatus");
 const elName = document.getElementById("displayName");
 const elMsg = document.getElementById("msg");
 const elSend = document.getElementById("sendBtn");
 
-// --- small helpers ---
-function setStatus(text, isError = false) {
-  elStatus.textContent = text;
-  elStatus.style.color = isError ? "#ffb3b3" : "#c8ffc8";
-}
-
+// ---------- helpers ----------
 function escapeHtml(str) {
-  return String(str)
+  return String(str ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -25,7 +21,7 @@ function escapeHtml(str) {
     .replaceAll("'", "&#039;");
 }
 
-function appendMessage({ name, text, ts }, isLocal = false) {
+function appendMessage({ name, text, ts }) {
   const time = ts ? new Date(ts) : new Date();
   const hhmm = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
@@ -37,7 +33,7 @@ function appendMessage({ name, text, ts }, isLocal = false) {
     <div style="display:flex; gap:10px; align-items:baseline;">
       <span style="opacity:0.7; font-size:0.85em; flex:0 0 auto;">${escapeHtml(hhmm)}</span>
       <span style="font-weight:700; flex:0 0 auto;">${escapeHtml(name || "anon")}</span>
-      <span style="opacity:${isLocal ? "0.95" : "0.9"}; flex:1; word-break:break-word;">${escapeHtml(text || "")}</span>
+      <span style="opacity:0.9; flex:1; word-break:break-word;">${escapeHtml(text || "")}</span>
     </div>
   `;
 
@@ -45,82 +41,99 @@ function appendMessage({ name, text, ts }, isLocal = false) {
   elMessages.scrollTop = elMessages.scrollHeight;
 }
 
+// Dedupe set (prevents double-render if PocketBase sends repeats, etc.)
+const seen = new Set();
+function shouldRender(id) {
+  if (!id) return true;
+  if (seen.has(id)) return false;
+  seen.add(id);
+  if (seen.size > 2000) seen.clear();
+  return true;
+}
+
 // Persist display name locally
 const savedName = localStorage.getItem("chat_display_name");
-if (savedName) elName.value = savedName;
+if (savedName && elName) elName.value = savedName;
 
-elName.addEventListener("input", () => {
-  localStorage.setItem("chat_display_name", elName.value.slice(0, 24));
+elName?.addEventListener("input", () => {
+  localStorage.setItem("chat_display_name", (elName.value || "").slice(0, 24));
 });
 
-// --- subscribe realtime ---
-async function connectRealtime() {
-  setStatus("Connecting realtime…");
-
+// ---------- load history ----------
+async function loadHistory() {
   try {
-    await pb.realtime.subscribe(TOPIC, (e) => {
-      // PocketBase delivers subscription messages like:
-      // { name: "example", data: "...json..." }
-      let payload = null;
+    // newest first, render oldest -> newest
+    const page = await pb.collection(COLLECTION).getList(1, 50, { sort: "-created" });
+    const items = [...page.items].reverse();
 
-      try {
-        payload = typeof e?.data === "string" ? JSON.parse(e.data) : e?.data;
-      } catch (_) {
-        // ignore malformed payloads
-      }
+    for (const rec of items) {
+      const id = `rec:${rec.id}`;
+      if (!shouldRender(id)) continue;
 
-      if (payload?.type === "chat") {
-        appendMessage(payload, false);
-      }
-    });
-
-    setStatus("Connected ✅  (realtime subscribed)");
+      appendMessage({
+        name: rec.name ?? rec.username ?? rec.displayName ?? "anon",
+        text: rec.text ?? rec.message ?? "",
+        ts: rec.created,
+      });
+    }
   } catch (err) {
-    console.error(err);
-    setStatus("Realtime connection failed. Check PB URL/CORS + server running.", true);
+    console.error("history load failed:", err);
   }
 }
 
-connectRealtime();
+// ---------- realtime subscribe ----------
+async function connectRealtime() {
+  try {
+    await pb.collection(COLLECTION).subscribe("*", (e) => {
+      if (!e) return;
 
-// --- send message (via server endpoint) ---
+      if (e.action === "create" && e.record) {
+        const id = `rec:${e.record.id}`;
+        if (!shouldRender(id)) return;
+
+        appendMessage({
+          name: e.record.name ?? e.record.username ?? e.record.displayName ?? "anon",
+          text: e.record.text ?? e.record.message ?? "",
+          ts: e.record.created,
+        });
+      }
+    });
+  } catch (err) {
+    console.error("subscribe failed:", err);
+  }
+}
+
+// ---------- send message (create record) ----------
 async function sendMessage() {
-  const name = (elName.value || "").trim().slice(0, 24);
-  const text = (elMsg.value || "").trim().slice(0, 500);
+  const name = (elName?.value || "").trim().slice(0, 24);
+  const text = (elMsg?.value || "").trim().slice(0, 500);
 
   if (!name) {
-    setStatus("Enter a name first.", true);
-    elName.focus();
+    elName?.focus();
     return;
   }
   if (!text) return;
 
-  // Optimistic local echo
-  appendMessage({ type: "chat", name, text, ts: new Date().toISOString() }, true);
-  elMsg.value = "";
-  elMsg.focus();
+  if (elMsg) elMsg.value = "";
+  elMsg?.focus();
 
   try {
-    const res = await fetch(`${PB_BASE}/api/chat/send`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, text }),
-    });
-
-    if (!res.ok) {
-      const out = await res.json().catch(() => ({}));
-      setStatus(out?.error || "Send failed.", true);
-    } else {
-      setStatus("Sent ✅");
-    }
+    // IMPORTANT: these field names MUST match your collection fields.
+    await pb.collection(COLLECTION).create({ name, text });
+    // Do NOT append locally here — realtime will render it once.
   } catch (err) {
-    console.error(err);
-    setStatus("Send failed (network/CORS).", true);
+    console.error("create failed:", err);
   }
 }
 
-elSend.addEventListener("click", sendMessage);
-
-elMsg.addEventListener("keydown", (ev) => {
+// UI events
+elSend?.addEventListener("click", sendMessage);
+elMsg?.addEventListener("keydown", (ev) => {
   if (ev.key === "Enter") sendMessage();
 });
+
+// Boot
+(async function boot() {
+  await loadHistory();
+  await connectRealtime();
+})();
